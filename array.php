@@ -1,6 +1,4 @@
-﻿<?php
-//$array = array('estado'=> 1, '' );
-//header('Content-Type: application/json');
+<?php
 $array = array(
     'estado'=>'1',
     'gen_noticiasjudiciales' => array(        
