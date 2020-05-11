@@ -1,26 +1,5 @@
 <?php
-/*
-$array = {
-    "estado": "1",
-    "gen_noticiasjudiciales": [
-        {
-            "NOJ_IdNoticia": "5",
-            "NOJ_Titular": "Asuntos Legales",
-            "NOJ_Texto": "Edictos",
-            "NOJ_Link": "https://www.asuntoslegales.com.co/edictos",
-            "NOJ_Estado": "1"
-        },
-	]
-}
-*/
-//include('array.php');
-$soportecURL = "S";
-//$url         = urlServicios."consultadetalle/consultadetalle_gen_noticiasjudiciales.php?IdMostrar=0";
-$url = "https://litigantes.github.io/array.php"
-
-//echo "<script>console.log($url)</script>" ;
-if(function_exists('curl_init')) // Comprobamos si hay soporte para cURL
-{
+$url = "http://localhost/appjuridica/cnnTest/array.php";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_VERBOSE, true);
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -34,6 +13,7 @@ if(function_exists('curl_init')) // Comprobamos si hay soporte para cURL
 
     $mnoticiasjudiciales = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $resultado);    
     $mnoticiasjudiciales = json_decode($mnoticiasjudiciales, true);
+
     //echo("<script>console.log('PHP: ".print_r($mnoticiasjudiciales)."');</script>");
     //echo("<script>console.log('PHP: ".count($m['gen_noticiasjudiciales'])."');</script>");
     
@@ -44,35 +24,36 @@ if(function_exists('curl_init')) // Comprobamos si hay soporte para cURL
         JSON_ERROR_SYNTAX => 'Error de Sintaxis',
     );
     //echo "Error : ", $json_errors[json_last_error()], PHP_EOL, PHP_EOL."<br>";        
-}
-else
-{
-    $soportecURL = "N";
-    echo "No hay soporte para cURL";
-} 
 
-if($soportecURL == "N")
-{
-    require_once('./unirest/vendor/autoload.php');
-    $response = Unirest\Request::get($url, array("X-Mashape-Key" => "MY SECRET KEY"));
-    $resultado = $response->raw_body;
-    $resultado = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $resultado);
-    $mnoticiasjudiciales = json_decode($resultado, true);	        
-} 
+$NombreTabla = '';
+$Texto = '';
+$Link = '';
 
 if( $mnoticiasjudiciales['estado'] < 2)
 {
+	//echo $mnoticiasjudiciales['estado'].'<br>';	
+	//$y= count($mnoticiasjudiciales['gen_noticiasjudiciales']);
+	//echo "Total......$y";
+	//print_r($mnoticiasjudiciales);
     $nombre_Tabla="";
+	
+	$NombreTabla = trim($mnoticiasjudiciales['gen_noticiasjudiciales']['NOJ_Titular']);
+	$Texto = trim($mnoticiasjudiciales['gen_noticiasjudiciales']['NOJ_Texto']);
+	$Link = trim($mnoticiasjudiciales['gen_noticiasjudiciales']['NOJ_Link']);
+	
+	/*
     for($i=0; $i<count($mnoticiasjudiciales['gen_noticiasjudiciales']); $i++)
     {
         $NombreTabla = trim($mnoticiasjudiciales['gen_noticiasjudiciales'][$i]['NOJ_Titular']);
 		$Texto = trim($mnoticiasjudiciales['gen_noticiasjudiciales'][$i]['NOJ_Texto']);
 		$Link = trim($mnoticiasjudiciales['gen_noticiasjudiciales'][$i]['NOJ_Link']);
-        $archivo = $NombreTabla.".php";
+        //$archivo = $NombreTabla.".php";
         $idTabla = $mnoticiasjudiciales['gen_noticiasjudiciales'][$i]['NOJ_IdNoticia'];
 		$FechaCreacion = $mnoticiasjudiciales['gen_noticiasjudiciales'][$i]['NOJ_FechaCreacion'];
         $estadoTabla = trim($mnoticiasjudiciales['gen_noticiasjudiciales'][$i]['EstadoTabla']);
 	}
-	
+	*/
+	//echo "Resultado........".$NombreTabla.' - '.$Texto.' - '.$Link.'<br>';
 }
+echo "Resultado........".$NombreTabla.' - '.$Texto.' - '.$Link;
 ?>
