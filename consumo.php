@@ -73,6 +73,6 @@ if( $mnoticiasjudiciales['estado'] < 2)
 		$FechaCreacion = $mnoticiasjudiciales['gen_noticiasjudiciales'][$i]['NOJ_FechaCreacion'];
         $estadoTabla = trim($mnoticiasjudiciales['gen_noticiasjudiciales'][$i]['EstadoTabla']);
 	}
-	echo "Resultado........".$NombreTabla.' - '.$Texto.' - '.$Link;
+	
 }
 ?>
