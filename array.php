@@ -1,0 +1,16 @@
+﻿<?php
+//$array = array('estado'=> 1, '' );
+
+$array = array(
+    'estado'=>'1',
+    'gen_noticiasjudiciales' => array(        
+		'NOJ_IdNoticia'=> '5',
+		'NOJ_Titular'=> 'Asuntos Legales',
+		'NOJ_Texto'=> 'Edictos',
+		'NOJ_Link'=> 'https://www.asuntoslegales.com.co/edictos',
+		'NOJ_Estado'=> '1'        
+	)
+);
+
+echo json_encode($array);
+?>
