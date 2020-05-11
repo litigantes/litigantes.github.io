@@ -1,5 +1,5 @@
 <?php
-$array = array(
+$gen_noticiasjudiciales= array(
     'estado'=>'1',
     'gen_noticiasjudiciales' => array(        
 		'NOJ_IdNoticia'=> '5',
@@ -9,4 +9,6 @@ $array = array(
 		'NOJ_Estado'=> '1'        
 	)
 );
+header('Content-Type: application/json');
+echo json_encode($gen_noticiasjudiciales);
 ?>
