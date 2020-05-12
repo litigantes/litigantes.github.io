@@ -1,5 +1,5 @@
 <?php
-{
+data = {
     "estado": "1",
     "gen_noticiasjudiciales": {
         "NOJ_IdNoticia": "5",
