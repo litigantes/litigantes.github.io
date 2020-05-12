@@ -1,4 +1,5 @@
-<?php $gen_noticiasjudiciales = array(
+<?php 
+$gen_noticiasjudiciales = array(
     "estado" => "1", 
     "gen_noticiasjudiciales"=> [
         "NOJ_IdNoticia"=> "5",
