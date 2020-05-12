@@ -1,5 +1,5 @@
 <?php
-$url = "http://localhost/appjuridica/cnnTest/array.php";
+$url = "http://localhost/appjuridica/cnnTest/array2.php";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_VERBOSE, true);
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -53,7 +53,7 @@ if( $mnoticiasjudiciales['estado'] < 2)
         $estadoTabla = trim($mnoticiasjudiciales['gen_noticiasjudiciales'][$i]['EstadoTabla']);
 	}
 	*/
-	//echo "Resultado........".$NombreTabla.' - '.$Texto.' - '.$Link.'<br>';
+	echo "Resultado........".$NombreTabla.' - '.$Texto.' - '.$Link.'<br>';
 }
-echo "Resultado........".$NombreTabla.' - '.$Texto.' - '.$Link;
+//echo "Resultado........".$NombreTabla.' - '.$Texto.' - '.$Link;
 ?>
