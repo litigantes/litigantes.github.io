@@ -11,5 +11,4 @@ $gen_noticiasjudiciales = array(
     ]	
 );
 
-echo json_encode($gen_noticiasjudiciales);
 ?>
