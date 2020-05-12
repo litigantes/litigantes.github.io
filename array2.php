@@ -9,4 +9,5 @@ $gen_noticiasjudiciales = array(
         "NOJ_Estado"=> "1"
     ]	
 );
+echo json_encode($gen_noticiasjudiciales);
 ?>
