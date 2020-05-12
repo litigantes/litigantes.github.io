@@ -1,5 +1,4 @@
-﻿<?php
-
+<?php
 $gen_noticiasjudiciales = array(
     "estado" => "1", 
     "gen_noticiasjudiciales"=> [
@@ -10,5 +9,4 @@ $gen_noticiasjudiciales = array(
         "NOJ_Estado"=> "1"
     ]	
 );
-
 ?>
