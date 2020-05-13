@@ -1,4 +1,4 @@
 <?php
-$hosting = "litigants.lawyer";
-$db = "litigantes_bd";
+$hosting = "Boshika.co";
+$db = "DB_litigantes";
 ?>
